@@ -1,0 +1,34 @@
+<h3>{{ settingForm.name }}</h3>
+<p>{{ settingForm.settings.formLayout[0][0].caption }}</p>
+<input nz-input type="text"/>
+<div nz-row [nzGutter]="24">
+    <div nz-col *ngFor="let layout of settingForm.settings.formLayout[1]" [nzSpan]="12">
+        <p>{{ layout.caption }}</p>
+        <input nz-input type="text"/>
+    </div>
+</div>
+<div nz-row [nzGutter]="24">
+    <div nz-col *ngFor="let layout of settingForm.settings.formLayout[2]" [nzSpan]="12">
+        <p>{{ layout.caption }}</p>
+        <input nz-input type="text"/>
+    </div>
+</div>
+<div nz-row [nzGutter]="24">
+    <div nz-col *ngFor="let layout of settingForm.settings.formLayout[3]" [nzSpan]="8">
+        <p>{{ layout.caption }}</p>
+        <input nz-input type="text"/>
+    </div>
+</div>
+<div nz-row [nzGutter]="24">
+    <div nz-col *ngFor="let layout of settingForm.settings.formLayout[4]" [nzSpan]="8">
+        <p>{{ layout.caption }}</p>
+        <input nz-input type="text"/>
+    </div>
+</div>
+
+<div nz-row [nzGutter]="24">
+    <div nz-col *ngFor="let layout of settingForm.settings.formLayout[5]" [nzSpan]="12">
+        <p>{{ layout.caption }}</p>
+        <editor></editor>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<form
+[formGroup]="form"
+>
+    <h3>{{ settingForm.name }}</h3>
+    <!-- <celltech-exam></celltech-exam> -->
+    <div *ngFor="let row of settingForm.settings.formLayout" nz-row [nzGutter]="24">
+        <div *ngFor="let column of row" nz-col [nzSpan]="24/row.length">
+            <p>{{ column.caption }}</p>
+            <ng-container [ngSwitch]="getElementType(column.component)">
+                <celltech-text
+                *ngSwitchCase="'TEXT'"
+                [formControlName]="column.component"
+                ></celltech-text>
+                <celltech-datetime
+                *ngSwitchCase="'DATE_TIME'"
+                [formControlName]="column.component"
+                ></celltech-datetime>
+                <celltech-select
+                *ngSwitchCase="'DROPDOWN'"
+                [formControlName]="column.component"
+                ></celltech-select>
+                <celltech-tree-select
+                *ngSwitchCase="'TREE_DROPDOWN'"
+                [formControlName]="column.component"
+                ></celltech-tree-select>
+                <celltech-number
+                *ngSwitchCase="'NUMBER'"
+                [formControlName]="column.component"
+                ></celltech-number>
+                <celltech-text-area
+                *ngSwitchCase="'TEXT_AREA'"
+                [formControlName]="column.component"
+                ></celltech-text-area>
+                <celltech-upload-file
+                *ngSwitchCase="'FILE'"
+                [formControlName]="column.component"
+                ></celltech-upload-file>
+                <div *ngSwitchDefault>Component not supported</div>
+            </ng-container>
+        </div>
+    </div>
+    <div class="action-buttons">
+        <button
+        nz-button
+        nzType="default"
+        type="submit"
+        nzShape="round"
+        *ngFor="let action of settingForm.settings.actionLayout.bottom"
+        (click)="onAction(action)"
+        >
+            {{ action.name }}
+        </button>
+    </div>
+</form>

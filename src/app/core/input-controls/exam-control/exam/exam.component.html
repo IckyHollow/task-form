@@ -1,0 +1,14 @@
+<div *ngFor="let row of settingForm.settings.formLayout; let i = index" nz-row [nzGutter]="24">
+    <div *ngFor="let column of row" nz-col [nzSpan]="24/row.length">
+        <div *ngIf="i < 2">
+            <p>{{ column.caption }}</p>
+            <input nz-input>
+            <!-- <ng-container [ngSwitch]="getElementType(column.component)">
+                <celltech-text
+                *ngSwitchCase="'TEXT'"
+                [formControlName]="column.component"
+                ></celltech-text>
+            </ng-container> -->
+        </div>
+    </div>
+</div>

@@ -142,7 +142,7 @@ export class DynamicService extends BaseApi {
     return this.httpClient.post<SearchResponse>(this.newCreateUrl(), searchData).pipe(map(response => response.data && response.data.length ? response.data[0] : null));
   }
 
-  private create(data: DynamicForm, recordId?: string, requestType?: RequestType) {
+  public create(data: DynamicForm, recordId?: string, requestType?: RequestType) {
     const convertData = {} as DynamicData;
 
     convertData.request = requestType;

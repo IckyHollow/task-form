@@ -5,5 +5,5 @@ export interface DynamicForm {
   tableName: string;
   data: KeyValuePair<any>;
   formId: string;
-  actionId: string;
+  actionId?: string;
 }
